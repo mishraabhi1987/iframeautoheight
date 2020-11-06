@@ -20,20 +20,7 @@
 		} );
 	});
 </script>
-<script type="text/javascript">
-	$(document).ready(function() {
-		var parentiframe_autoresize = window != window.parent;	/* Check if current content is loaded in an iframe */
-		if(parentiframe_autoresize) {		/* If so, periodically send content-height to the parent-window/iframe */
-			var parent_url = window.name;
 
-			function setCustomerHeight() {
-				$.postMessage({ if_height: $('#container').height() }, parent_url, parent );
-			};
-			setCustomerHeight();
-			setInterval(setCustomerHeight, 500);
-		}
-	});
-</script>
 <style>
 div#wrapper { min-height: 0; }
 </style>
