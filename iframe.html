@@ -39,7 +39,11 @@ div#wrapper { min-height: 0; }
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 $(document).ready(function() {
-	
+	$('iframe').on("load", function (e) {
+		//var h = this.contentWindow.document.body.offsetHeight + 'px';
+		//alert(h);
+		alert("works");
+	});
 	
 });
 </script>
