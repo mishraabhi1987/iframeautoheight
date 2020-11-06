@@ -39,17 +39,7 @@ div#wrapper { min-height: 0; }
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 $(document).ready(function() {
-	$('iframe').on("load", function (e) {
-		setTimeout(iResize, 50);
-		// Safari and Opera need a kick-start.
-		var iSource = document.getElementById('abc').src;
-		document.getElementById('abc').src = '';
-		document.getElementById('abc').src = iSource;
-	});
-	function iResize() {
-		document.getElementById('abc').style.height = 
-		document.getElementById('abc').contentWindow.document.body.offsetHeight + 'px';
-	}
+	
 	
 });
 </script>
