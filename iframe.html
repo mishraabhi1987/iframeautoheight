@@ -1,4 +1,4 @@
-<html> 
+<!--<html> 
 <head>
 <title>iframe</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -29,6 +29,27 @@ div#wrapper { min-height: 0; }
 <div id="umantis_iframe">
 <iframe src="https://recruitingapp-1000.develop.umantis.com/Jobs/All?searchTokens=114" onLoad="self.scrollTo(0,0)" name="https://www.alterszentrumpark.ch/ueber-uns-rundgang/ueber-uns/test-umantis-stellenmarkt.html/1832" width="980" height="1500" scrolling="no"  frameborder="0"></iframe>
 </div>
+
+</body>
+</html>-->
+
+<html> 
+<head>
+<title>iframe local</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+	$('iframe').on("load", function (e) {
+		var h = document.getElementById('abc').contentWindow.document.body.offsetHeight + 'px';
+		 //var iSource = document.getElementById('iframe').src;
+		alert(h);
+	});
+	
+});
+</script>
+</head>
+<body>
+<iframe id="abc" src="https://recruitingapp-1000.develop.umantis.com/Jobs/All?searchTokens=114" name="https://www.alterszentrumpark.ch/ueber-uns-rundgang/ueber-uns/test-umantis-stellenmarkt.html/1832" width="980" height="1500"></iframe>
 
 </body>
 </html>
