@@ -40,9 +40,9 @@ div#wrapper { min-height: 0; }
 <script>
 $(document).ready(function() {
 	$('iframe').on("load", function (e) {
-		//var h = this.contentWindow.document.body.offsetHeight + 'px';
-		//alert(h);
-		alert("works");
+		var h = this.contentWindow.document.body.offsetHeight + 'px';
+		alert(h);
+		//alert("works");
 	});
 	
 });
