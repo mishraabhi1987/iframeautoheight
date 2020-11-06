@@ -42,8 +42,8 @@ $(document).ready(function() {
 	$('iframe').on("load", function (e) {
 		setTimeout(iResize, 50);
 		// Safari and Opera need a kick-start.
-		var iSource = document.getElementById('your-iframe-id').src;
-		//document.getElementById('abc').src = '';
+		var iSource = document.getElementById('abc').src;
+		document.getElementById('abc').src = '';
 		document.getElementById('abc').src = iSource;
 	});
 	function iResize() {
