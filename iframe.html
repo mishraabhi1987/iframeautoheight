@@ -3,8 +3,36 @@
 <title>iframe</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://raw.githubusercontent.com/cowboy/jquery-postmessage/master/jquery.ba-postmessage.js"></script>
-<script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var if_height, src = 'https://recruitingapp-1000.develop.umantis.com/Jobs/All',
+		iframe = $( '<iframe src="' + src + '" name="' + document.location.href + '" width="980" height="500" frameborder="0" scrolling="no"><\/iframe>' ).appendTo( '#umantis_iframe' );
 
+		$.receiveMessage(function(e){
+
+			var h = Number(e.data.replace(/[^0-9\.]+/g,""));
+
+			if (!isNaN( h ) && h > 0 && h !== if_height) {
+				/* Height has changed, update the iframe */
+				if_height = h;
+				iframe.height(h);
+			}
+		} );
+	});
+</script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var parentiframe_autoresize = window != window.parent;	/* Check if current content is loaded in an iframe */
+		if(parentiframe_autoresize) {		/* If so, periodically send content-height to the parent-window/iframe */
+			var parent_url = window.name;
+
+			function setCustomerHeight() {
+				$.postMessage({ if_height: $('#container').height() }, parent_url, parent );
+			};
+			setCustomerHeight();
+			setInterval(setCustomerHeight, 500);
+		}
+	});
 </script>
 <style>
 div#wrapper { min-height: 0; }
@@ -12,7 +40,7 @@ div#wrapper { min-height: 0; }
 </head>
 <body>
 <div id="umantis_iframe">
-<iframe src="https://recruitingapp-1000.develop.umantis.com/Jobs/All?searchTokens=114" onLoad="self.scrollTo(0,0)" name="https://www.alterszentrumpark.ch/ueber-uns-rundgang/ueber-uns/test-umantis-stellenmarkt.html/1832" width="980" height="1500" scrolling="yes"  frameborder="0"></iframe>
+<iframe src="https://recruitingapp-1000.develop.umantis.com/Jobs/All?searchTokens=114" onLoad="self.scrollTo(0,0)" name="https://www.alterszentrumpark.ch/ueber-uns-rundgang/ueber-uns/test-umantis-stellenmarkt.html/1832" width="980" height="500" scrolling="yes"  frameborder="0"></iframe>
 </div>
 
 </body>
