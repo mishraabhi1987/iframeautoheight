@@ -7,7 +7,6 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		var if_height, src = 'https://recruitingapp-1000.develop.umantis.com/Jobs/1',iframe = $( '<iframe src="' + src + '" name="' + document.location.href + '" width="980" height="500" frameborder="0" scrolling="no"><\/iframe>' ).appendTo( '#umantis_iframe' );
-		debugger;
 		$.receiveMessage(function(e){
 
 			var h = Number(e.data.replace(/[^0-9\.]+/g,""));
