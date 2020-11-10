@@ -15,8 +15,9 @@
 			if (!isNaN( h ) && h > 0 && h !== if_height) {
 				/* Height has changed, update the iframe */
 				if_height = h;
+				iframe.height(h);
 			}
-		}, 'https://recruitingapp-1000.develop.umantis.com/Jobs/1', 30); 
+		}); 
 	});
 </script>
 
