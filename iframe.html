@@ -5,45 +5,19 @@
 <script src="https://raw.githubusercontent.com/cowboy/jquery-postmessage/master/jquery.ba-postmessage.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		 $(function(){
+		var if_height, src = 'https://recruitingapp-1000.develop.umantis.com/Jobs/All',
+		iframe = $( '<iframe src="' + src + '" name="' + document.location.href + '" width="980" height="500" frameborder="0" scrolling="no"><\/iframe>' ).appendTo( '#umantis_iframe' );
 
-        // Keep track of the iframe height.
-        var if_height,
+		$.receiveMessage(function(e){
 
-        // Pass the parent page URL into the Iframe in a meaningful way (this URL could be
-        // passed via query string or hard coded into the child page, it depends on your needs).
+			var h = Number(e.data.replace(/[^0-9\.]+/g,""));
 
-        src = 'https://recruitingapp-1000.develop.umantis.com/Jobs/All/',
-
-        // Append the Iframe into the DOM.
-        iframe = jQuery( '<iframe src="' + src + '" width="1060" height="1000" scrolling="no" frameborder="0"><\/iframe>' )
-            .appendTo( '#iframe' );
-
-        // Setup a callback to handle the dispatched MessageEvent event. In cases where
-        // window.postMessage is supported, the passed event will have .data, .origin and
-        // .source properties. Otherwise, this will only have the .data property.
-        jQuery.receiveMessage(function(e){
-
-        // Get the height from the passsed data.
-        var h = Number( e.data.replace( /.*if_height=(\d+)(?:&|jQuery)/, 'jQuery1' ) );
-
-        if ( !isNaN( h ) && h > 0 && h !== if_height ) {
-        // Height has changed, update the iframe.
-            iframe.height( if_height = h );
-        }
-
-        // An optional origin URL (Ignored where window.postMessage is unsupported).
-        }, 'https://recruitingapp-1000.develop.umantis.com/Jobs/All/' );
-
-        // And for good measure, let's send a toggle_content message to the child.
-        jQuery( '<a href="#">Show / hide Iframe content<\/a>' )
-            .appendTo( '#umantis_iframe' )
-            .click(function(){
-            jQuery.postMessage( 'toggle_content', src, iframe.get(0).contentWindow );
-            return false;
-        });
-
-    });
+			if (!isNaN( h ) && h > 0 && h !== if_height) {
+				/* Height has changed, update the iframe */
+				if_height = h;
+				
+			}
+		} ); 
 	});
 </script>
 
@@ -52,7 +26,6 @@ div#umantis_iframe { min-height: 0; }
 </style>
 </head>
 <body>
-<div id="iframe" class="clear"></div>
 <div id="umantis_iframe">
 
 </div>
