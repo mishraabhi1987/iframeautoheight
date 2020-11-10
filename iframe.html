@@ -37,7 +37,7 @@
 
         // And for good measure, let's send a toggle_content message to the child.
         jQuery( '<a href="#">Show / hide Iframe content<\/a>' )
-            .appendTo( '#nav' )
+            .appendTo( '#umantis_iframe' )
             .click(function(){
             jQuery.postMessage( 'toggle_content', src, iframe.get(0).contentWindow );
             return false;
