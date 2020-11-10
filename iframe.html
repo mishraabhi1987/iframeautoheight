@@ -4,11 +4,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://raw.githubusercontent.com/cowboy/jquery-postmessage/master/jquery.ba-postmessage.js"></script>
 <script type="text/javascript">
-	jquery(document).ready(function() {
+	$(document).ready(function() {
 		var if_height, src = 'https://recruitingapp-1000.develop.umantis.com/Jobs/All',
-		iframe = jquery( '<iframe src="' + src + '" name="' + document.location.href + '" width="980" height="500" frameborder="0" scrolling="no"><\/iframe>' ).appendTo( '#umantis_iframe' );
+		iframe = $( '<iframe src="' + src + '" name="' + document.location.href + '" width="980" height="500" frameborder="0" scrolling="no"><\/iframe>' ).appendTo( '#umantis_iframe' );
 
-		jquery.receiveMessage(function(e){
+		$.receiveMessage(function(e){
 
 			var h = Number(e.data.replace(/[^0-9\.]+/g,""));
 
@@ -17,7 +17,7 @@
 				if_height = h;
 			}
 		} ); 
-	})(jQuery);
+	});
 </script>
 
 <style>
