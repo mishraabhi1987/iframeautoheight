@@ -10,13 +10,14 @@
 		$.receiveMessage(function(e){
 
 			var h = Number(e.data.replace(/[^0-9\.]+/g,""));
-
+			console.log("before if");
 			if (!isNaN( h ) && h > 0 && h !== if_height) {
 				/* Height has changed, update the iframe */
 				if_height = h;
 				iframe.height(h);
 				console.log("Abhishek" + "ifheight "+ if_height);
 			}
+			console.log("outside");
 		}); 
 	});
 </script>
