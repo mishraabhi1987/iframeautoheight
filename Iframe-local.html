@@ -10,8 +10,7 @@ $(document).ready(function() {
  var umantis_iframe_cookie_fix_url = 'https://recruitingapp-1000.develop.umantis.com/css/cookie_fix.html';
  var is_safari = navigator.userAgent.indexOf('Safari') > -1;
  var is_chrome = navigator.userAgent.indexOf('Chrome') > -1;
- if ((is_chrome) && (is_safari)) { is_safari = false; }
- if (is_safari) {
+ if ((is_chrome) && (is_safari)) { is_safari = false; }{
  if (!document.cookie.match(/^(.*;)?\s*recruitingapp_cookies\s*=\s*[^;]+(.*)?$/)) {
  document.cookie = 'recruitingapp_cookies=enabled; path=/';
  document.cookie = 'safari_cookie_fix=fixed; path=/';
