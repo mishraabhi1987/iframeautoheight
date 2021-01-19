@@ -13,7 +13,13 @@ $(document).ready(function() {
  if (is_safari) {
  if (!document.cookie.match(/^(.*;)?\s*recruitingapp_cookies\s*=\s*[^;]+(.*)?$/)) {
  document.cookie = 'recruitingapp_cookies=enabled; path=/';
- window.location.replace(umantis_iframe_cookie_fix_url);
+ document.cookie = 'safari_cookie_fix=fixed; path=/';
+  if (window.location.href.indexOf('verbose') > -1) { // you should remove or comment this line
+    alert('safari fix has been applied'); // you should remove or comment this line
+    setTimeout(window.location.replace(document.referrer), 2000); // you should remove or comment this line
+  } else { // you should remove or comment this line
+      window.location.replace(document.referrer) //>>>>>>> leave this line ONLY <<<<<<<<
+  } // 
                             }
                }
 	});
