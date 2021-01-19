@@ -14,7 +14,7 @@ $(document).ready(function() {
  if ((is_chrome) && (is_safari)) { is_safari = false; }
  if (is_chrome) {
  if (!document.cookie.match(/^(.*;)?\s*recruitingapp_cookies\s*=\s*[^;]+(.*)?$/)) {
- document.cookie = 'recruitingapp_cookies=enabled; path=/';
+ document.cookie = 'fixed=fixed; path=/';
  window.location.replace(umantis_iframe_cookie_fix_url);
                             }
                }
