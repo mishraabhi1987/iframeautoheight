@@ -12,7 +12,7 @@ var is_safari = navigator.userAgent.indexOf("Safari") > -1;
         if (!document.cookie.match(/^(.*;)?\s*fixed\s*=\s*[^;]+(.*)?$/)) {
 
             document.cookie = 'recruitingapp_cookies=enabled; path=/';
-            window.location.replace("https://recruitingapp-1000.develop.umantis.com/css/cookie_fix.html");
+            document.cookie = 'third_party_cookie=enabled; path=/';
         }
     }
 </script>
