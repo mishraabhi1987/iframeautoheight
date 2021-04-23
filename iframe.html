@@ -9,9 +9,9 @@
 		debugger;
 		var if_height, src = 'https://recruitingapp-1000.develop.umantis.com/Jobs/1',iframe = $( '<iframe src="' + src + '" name="' + document.location.href + '" width="980" height="500" frameborder="0" scrolling="no"><\/iframe>' ).appendTo( '#umantis_iframe' );
 		$.receiveMessage(function(e){
-
+			
 			var h = Number(e.data.replace(/[^0-9\.]+/g,""));
-
+			console.log(h);
 			if (!isNaN( h ) && h > 0 && h !== if_height) {
 				/* Height has changed, update the iframe */
 				if_height = h;
