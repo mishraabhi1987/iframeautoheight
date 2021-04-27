@@ -4,10 +4,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		var if_height, src = 'https://recruitingapp-1000.develop.umantis.com/Jobs/1',
-		iframe = $( '<iframe src="' + src + '" name="' + document.location.href + '" width="980" height="500" frameborder="0" scrolling="no"><\/iframe>' ).appendTo( '#umantis_iframe' );
-		 window.addEventListener("message", receiveMessage, false);
-            function receiveMessage(e){  
+	var if_height, src = 'https://recruitingapp-1000.develop.umantis.com/Jobs/1',
+	iframe = $( '<iframe src="' + src + '" name="' + document.location.href + '" width="980" height="500" frameborder="0" scrolling="no"><\/iframe>' ).appendTo( '#umantis_iframe' );
+	 window.addEventListener("message", receiveMessage, false);
+           $.receiveMessage(function(e) {
                 var h = Number(e.data.replace(/[^0-9\.]+/g, ""));
 
                 if (!isNaN(h) && h > 0 && h !== if_height) {
@@ -16,7 +16,6 @@
                     iframe.height(h);
                 }
             }
-		receiveMessage();
 	});
 </script>
 
